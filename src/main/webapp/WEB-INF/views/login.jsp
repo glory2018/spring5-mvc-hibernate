@@ -24,8 +24,8 @@
     </style>
 </head>
 <body>
-<h1>Input Form</h1>
-<form:form action="addUser" method="post" modelAttribute="user">
+<h1>Login Form</h1>
+<form:form action="login" method="post" modelAttribute="user">
     <table>
         <tr>
             <td>Name</td>
@@ -33,30 +33,17 @@
                     path="name" cssClass="error"/></td>
         </tr>
         <tr>
-            <td>Email</td>
-            <td><form:input path="email"/> <br/> <form:errors
-                    path="email" cssClass="error"/></td>
+            <td>Password</td>
+            <td><form:input path="password"/> <br/> <form:errors
+                    path="password" cssClass="error"/></td>
         </tr>
         <tr>
             <td colspan="2">
-                <button type="submit">Submit</button>
+                <a href="register" color=blue>注册用户</a>
+                <button type="submit">Login</button>
             </td>
         </tr>
     </table>
 </form:form>
-
-<h2>Users List</h2>
-<table>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td><strong>Email</strong></td>
-    </tr>
-    <c:forEach items="${users}" var="user">
-        <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-        </tr>
-    </c:forEach>
-</table>
 </body>
 </html>

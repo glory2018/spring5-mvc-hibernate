@@ -38,25 +38,16 @@
                     path="email" cssClass="error"/></td>
         </tr>
         <tr>
+            <td>Password</td>
+            <td><form:password path="password"/> <br/> <form:errors
+                    path="password" cssClass="error"/></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <button type="submit">Submit</button>
             </td>
         </tr>
     </table>
 </form:form>
-
-<h2>Users List</h2>
-<table>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td><strong>Email</strong></td>
-    </tr>
-    <c:forEach items="${users}" var="user">
-        <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-        </tr>
-    </c:forEach>
-</table>
 </body>
 </html>

@@ -1,11 +1,11 @@
 package com.ibm.mose.demo.service;
 
+import com.ibm.mose.demo.entity.User;
+
 import java.util.List;
 
-import com.ibm.mose.demo.model.User;
-
 public interface UserService {
-   void save(User user);
-
-   List<User> list();
+    void save(User user);
+    List<User> find(User user);
+    List<User> list();
 }

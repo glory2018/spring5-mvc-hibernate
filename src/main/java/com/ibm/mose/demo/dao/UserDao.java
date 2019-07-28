@@ -1,10 +1,11 @@
 package com.ibm.mose.demo.dao;
 
+import com.ibm.mose.demo.entity.User;
+
 import java.util.List;
 
-import com.ibm.mose.demo.model.User;
-
 public interface UserDao {
-   void save(User user);
-   List<User> list();
+    void save(User user);
+    List<User> find(User user);
+    List<User> list();
 }

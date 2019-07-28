@@ -14,29 +14,28 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.ibm.mose.demo"})
+@ComponentScan(basePackages = {"com.ibm.mose.demo"})
 public class WebMvcConfig implements WebMvcConfigurer {
+    @Bean
+    public InternalResourceViewResolver resolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
 
-   @Bean
-   public InternalResourceViewResolver resolver() {
-      InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-      resolver.setViewClass(JstlView.class);
-      resolver.setPrefix("/WEB-INF/views/");
-      resolver.setSuffix(".jsp");
-      return resolver;
-   }
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("messages");
+        return source;
+    }
 
-   @Bean
-   public MessageSource messageSource() {
-      ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-      source.setBasename("messages");
-      return source;
-   }
-
-   @Override
-   public Validator getValidator() {
-      LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-      validator.setValidationMessageSource(messageSource());
-      return validator;
-   }
+    @Override
+    public Validator getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(messageSource());
+        return validator;
+    }
 }
